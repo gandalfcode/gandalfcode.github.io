@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>GANDALF</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <h1><a href="index.html">GANDALF</a></h1>
+          <h2>Graphical Astrophysics code for N-body Dynamics And Lagrangian Fluids</h2>
+        </div>
+      </div>
+      <nav>
+        <ul class="sf-menu" id="nav">
+          <li><a href="index.html">What is GANDALF?</a></li>
+          <li><a href="#">News</a></li>
+          <li class="selected"><a href="examples.html">Using GANDALF</a></li>
+          <li><a href="projects.html">Projects and publications</a></li>
+          <li><a href="tests.html">Test suite</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="#">Help</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="site_content">
+
+      <div class="content">
+        <h1>How to use GANDALF?</h1>
+        <p>GANDALF contains two principle code components; (a) a main C++ code that performs all intensive numerical computations such as self-gravitating hydrodynamics, and (b) a Python front-end which can call functions from the main C++ and execute simulations from a Python environment.  This approach allows GANDALF to be run in three principle modes : </p>
+        <h3>Command-line mode</h3>
+        <p> In command-line mode, the C++ code is run alone as a stand-alone as an executable using a parameters file to provide details of the simulation.  This mode is most often used for running on larger mult-core clusters.
+        <h3>Executable python script</h3>
+        <p> Running a simulation via a python script is a convenient way of running batch simulations, or often-repeated simulations such as standard benchmarks during development.  
+        <h3>Interactive python shell</h3>
+        <p> An interactive shell can be useful for analysing newly run simulations on-the-fly, both for generating statistical data and for generating plots.
+      </div>
+    </div>
+    <footer>
+      <p>Based on designs from <a href="http://www.css3templates.co.uk">css3templates.co.uk</a></p>
+    </footer>
+  </div>
+</body>
+</html>

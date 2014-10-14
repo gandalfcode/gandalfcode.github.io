@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>GANDALF</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+ <header>
+      <div id="logo">
+        <div id="logo_text">
+          <h1><a href="index.html">GANDALF</a></h1>
+          <h2>Graphical Astrophysics code for N-body Dynamics And Lagrangian Fluids</h2>
+        </div>
+      </div>
+      <nav>
+        <ul class="sf-menu" id="nav">
+          <li><a href="index.html">What is GANDALF?</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="examples.html">Using GANDALF</a></li>
+          <li><a href="projects.html">Projects and publications</a></li>
+          <li class="selected"><a href="tests.html">Test suite</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="#">Help</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="site_content">
+
+      <div class="content">
+        <h1>Tests</h1>
+        <p>Hydrodynamical codes contain a wide selection of algorithms that must work in tandem to produce the correct results in real problems.  Although we can test the individual lines of code to check that everything works independently, we must perform simulations of problems with known results to be confident that the code is working as expected.  As with many other hydrodynamical codes, GANDALF contains a large test-suite of known problems to demonstrate that the code is functioning correctly</p>
+        <h2>Hydrodynamical tests</h2>
+        <h3>Shocktube tests</h3>
+        <p>Shocktube tests have been used to validate the accuracy of hydrodynamical codes for decades, in particular for capturing shocks and also for handling low-density rarefactions.  We perform here two common tests; the adiabatic Sod test and the isothermal wall-shock test.</p>
+        <h3>Blast-wave tests</h3>
+        <p>Blast-waves are demanding tests of a code's ability to model strong explosions which generate a strong supersonic shock.  Examples of such events in astrophysics include supernovae, high temperature winds and ionising radiation feedback from massive stars.</p>
+        <p>We perform here the standard Sedov blast-wave test (also known as the Sedov-Taylor blast-wave).  The initial conditions are formally an infinitely extending cold uniform medium with a point explosion in the centre with total energy 1 (in dimensionless units).  This explosion can be either in thermal energy or in radial kinetic energy.  We simulate both cases here.</p>
+        <p>For SPH simulations, the initial conditions must be set-up more carefully since the smallest resolvable scale is the SPH smoothing length.  Therefore to obtain acceptable results, the point explosion must be smoothed over all particles within a smoothing kernel.
+        <h3>Kelvin-Helmholtz instability</h3>
+        <p>The Kelvin-Helmholtz instability is a hydrodynamical instability generated at the interface between two shearing fluids.  The initial linear phase of the instability leads to the interface between the two fluids being displaced perpendicularly.  As the displacement becomes larger, the instability becomes non-linear leading to the generation of vortices along the interface where the two fluids mix together.  This problem became a subject of intense scrutiny in the literature following ???? where the effects causing mixing (or lack of mixing) were debated as being numerical in origin.  </p>
+        <h2>Gravitational tests</h2>
+        <h3>Gravitational freefall collapse</h3>
+        <p>The simplest test of self-gravity is to model simple density profiles with known gravitational potentials and forces, such as a uniform density sphere or a polytrope.  A uniform density sphere will undergo self-similar collapse under gravity in exactly one freefall time, and has a simple analytical form for both the time evolution of the density field and the gravitational field, both inside and outside the sphere.</p>
+        <p>We set up a uniform density sphere by relaxing a glass from SPH particles and 'cutting' out a spherical group of particles.  We then (i) calculate the gravitational field at all points prior to the collapse calculation and compare to the analytical values, and (ii) follow the time-evolution of the sphere and follow its collapse down to just before it reaches very high/infinite densities.</p>
+        <h3>Bondi accretion</h3>
+        <p>Star formation simulations often use devices called 'sink particles' to model accretion onto a protostar accurately and efficiently.  They allow simulations of self-gravitating collapse and accretion to proceed quickly while ignoring small-scale physics during the accretion process in favour of a sub-grid accretion model.  To test whether the sink particles accrete correctly, we set-up a simple spherically symmetric steady-state accretion problem based on the Bondi accretion model.</p>
+        <p>The initial conditions are the standard sready-state Bondi accretion solution, derived by radially stretching a relaxed glass of SPH particles to the correct profile (details are described in ???).  We then place sinks of sizes ????? at the centre.  The simulation is run for ????, which corresponds to at least one sound crossing time of the sink particle.</p>
+        <h3>Boss-Bodenheimer test</h3>
+        <p>The Boss-Bodenheimer test is a standard benchmark that is often performed on self-gravitating hydrodynamical codes.</p>
+        <h2>N-body tests</h2>
+        <p>Few analytical N-body tests exist due to the non-linear/chaotic motion of self-gravitating point masses.  We model the few standard benchmarks of N-body dynamics with the N-body integrators in GANDALF.</p>
+        <h3>Binary orbit</h3>
+        <p>The only stable analytical solution to the N-body problem is the 2-body problem involving a bound, stable orbit of one object around another.  We follow the orbit of a binary star using the different integration schemes and measure the energy error for each case as a function of timestep.</p>
+        <h3>Burrau test</h3>
+        <p>The Burrau test is a standard benchmark test used in few-body codes.  It follows the motion of 3 stars, initially set-up on a perfect triangle with zero-velocity.  The system eventually evolves with one star being ejected in favour of the other two stars forming a tight binary.</p>
+      </div>
+    </div>
+    <footer>
+      <p>Based on designs from <a href="http://www.css3templates.co.uk">css3templates.co.uk</a></p>
+    </footer>
+  </div>
+</body>
+</html>
