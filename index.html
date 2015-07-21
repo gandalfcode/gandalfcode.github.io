@@ -23,7 +23,6 @@
       <nav>
         <ul class="sf-menu" id="nav">
           <li class="selected"><a href="index.html">What is GANDALF?</a></li>
-          <li><a href="#">News</a></li>
           <li><a href="examples.html">Using GANDALF</a></li>
           <li><a href="projects.html">Projects and publications</a></li>
           <li><a href="tests.html">Test suite</a></li>
@@ -40,10 +39,10 @@
         <h1>What is GANDALF?</h1>
         <p>GANDALF is a hybrid self-gravitating fluid dynamics and collisional N-body code primarily designed for investigating star formation and planet formation problems that cannot be analysed by traditional `pen and paper' mathematics.  Such problems require computer simulations to study the details of what happens in any given scenario.</p>
 
-        <p>GANDALF is the successor code to SEREN (link??), which itself was a self-gravitating hydrodynamical code with N-body components attached.  Although based on many of the SEREN routines, GANDALF has been largely re-written from scratch in C++ using more optimal algorithms and data structures.  For typical star formation problems, GANDALF runs approx. 3 times faster on similar architecture.</p>
+        <p>GANDALF is the successor code to <a href=https://github.com/dhubber/seren>SEREN</a> (<a href=http://adsabs.harvard.edu/abs/2011A%26A...529A..27H>Hubber et al. 2011</a>), which itself was a self-gravitating hydrodynamical code with N-body components attached.  Although based on many of the SEREN routines, GANDALF has been largely re-written from scratch in C++ using more optimal algorithms and data structures.  For typical star formation problems, GANDALF runs approx. 3 times faster on similar architecture.</p>
 
 
-        <!-- 
+        <!--
         <video width="320" height="320" controls>
           <source src="movie20.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -69,71 +68,64 @@
         <p>GANDALF was written in C++ in order to take advantage of the benefits of object-oriented design in large projects.  Since GANDALF has multiple implementations for the same feature (e.g. different hydrodynamics methods for the gas, different integration schemes to move particles), the code is designed so that each algorithmic feature has a standard format and interface.  This makes adding additional implementations easier since each feature already has a well-defined structure that can be adhered to.</p>
 
         <h2>Status & Features</h2>
-        <p> The latest version of GANDALF contains the following features</p> 
-        <ul>        
-          <li> 3 `flavours' of SPH : 
-	    <ul>
-	      <li> Conservative 'grad-h' SPH (e.g. 
-		<a href=http://adsabs.harvard.edu/abs/2002MNRAS.333..649S>Springel & Hernquist 2002</a>, 
-		<a href=http://adsabs.harvard.edu/abs/2004MNRAS.348..139P>Price & Monaghan 2004</a>)</li>
-	      <li> `Density-independent' SPH (<a href=http://adsabs.harvard.edu/abs/2013ApJ...768...44S>Saitoh & Makino 2013</a>, 
-                <a href=http://adsabs.harvard.edu/abs/2013MNRAS.428.2840H>Hopkins 2013</a>)</li>
-	      <li> Godunov SPH 
-		(<a href=http://adsabs.harvard.edu/abs/2002JCoPh.179..238I>Inutsuka 2002</a>, 
-		<a href=http://adsabs.harvard.edu/abs/2003MNRAS.340...73C>Cha & Whitworth 2003</a>) </li>
-	    </ul>
-	  </li>
-	  <li> 1, 2 or 3 dimensions </li>
-	  <li> Periodic boundary conditions (independent for each dimension) </li>
-          <li> 2nd order Leapfrog kick-drift-kick and drift-kick-drift </li>
-	  <li> Block timesteps and neighbour-timestep checking 
-	  for safety 
-	      (<a href=http://adsabs.harvard.edu/abs/2009ApJ...697L..99S>Saitoh & Makino 2009</a>) </li>
-	  <li> Various flavours of artificial dissipation : 
+        <p> The latest version of GANDALF contains the following features</p>
+        <ul>
+          <li> 2 `flavours' of SPH :
             <ul>
-              <li> 'Riemann solver-based' artificial viscosity  
-		  (<a href=http://adsabs.harvard.edu/abs/1997JCoPh.136..298M>Monaghan 1997</a>) </li>
-              <li> Time-dependent artificial viscosity
-		  (<a href=http://adsabs.harvard.edu/abs/1997JCoPh.136...41M>Morris & Monaghan 1997</a>) </li>
-              <li> Artificial conductivity 
-		  (e.g. <a href=http://adsabs.harvard.edu/abs/2008JCoPh.22710040P>Price 2008</a>) </li>
+              <li> Conservative 'grad-h' SPH (e.g.
+                <a href=http://adsabs.harvard.edu/abs/2002MNRAS.333..649S>Springel & Hernquist 2002</a>,
+                <a href=http://adsabs.harvard.edu/abs/2004MNRAS.348..139P>Price & Monaghan 2004</a>)</li>
+              <li> `Density-independent' SPH (<a href=http://adsabs.harvard.edu/abs/2013ApJ...768...44S>Saitoh & Makino 2013</a>,
+                  <a href=http://adsabs.harvard.edu/abs/2013MNRAS.428.2840H>Hopkins 2013</a>)</li>
             </ul>
-	  <li> Sink particles (<a href=http://adsabs.harvard.edu/abs/1995MNRAS.277..362B>Bate, Bonnell & Price 1995</a>) with smooth accretion (<a href=http://adsabs.harvard.edu/abs/2013MNRAS.430.3261H>Hubber, Walch & Whitworth 2013</a>) </li>
-
-
+          </li>
+          <li> 1, 2 or 3 dimensions </li>
+          <li> Barnes-Hut Octal tree for efficient neighbour finding and calculation of gravitational forces
+            (<a href=http://adsabs.harvard.edu/abs/1986Natur.324..446B>Barnes & Hut 1986</a>)
+          <li> Periodic boundary conditions (independent for each dimension) </li>
+          <li> Ewald periodic gravity
+            (<a href=http://adsabs.harvard.edu/abs/1991ApJS...75..231H>Hernquist, Bouchet & Suto 1991</a>,
+                  <a href=http://adsabs.harvard.edu/abs/1997MNRAS.292...11K>Klessen 1997</a>) </li>
+          <li> 2nd order Leapfrog kick-drift-kick and drift-kick-drift </li>
+          <li> Block timesteps and neighbour-timestep checking for safety
+            (<a href=http://adsabs.harvard.edu/abs/2009ApJ...697L..99S>Saitoh & Makino 2009</a>) </li>
+          <li> Various flavours of artificial dissipation :
+            <ul>
+              <li> 'Riemann solver-based' artificial viscosity
+                (<a href=http://adsabs.harvard.edu/abs/1997JCoPh.136..298M>Monaghan 1997</a>) </li>
+              <li> Time-dependent artificial viscosity
+                (<a href=http://adsabs.harvard.edu/abs/1997JCoPh.136...41M>Morris & Monaghan 1997</a>) </li>
+              <li> Artificial conductivity
+                (e.g. <a href=http://adsabs.harvard.edu/abs/2008JCoPh.22710040P>Price 2008</a>) </li>
+            </ul>
+          </li>
+          <li> Sink particles (<a href=http://adsabs.harvard.edu/abs/1995MNRAS.277..362B>Bate, Bonnell & Price 1995</a>) with smooth accretion (<a href=http://adsabs.harvard.edu/abs/2013MNRAS.430.3261H>Hubber, Walch & Whitworth 2013</a>) </li>
           <li> Various N-body algorithms and optimisations
             <ul>
               <li> 4th-order Hermite integration, standard  (<a href=http://adsabs.harvard.edu/abs/1992PASJ...44..141M>Makino & Aarseth 1992</a>) and time-symmetric (<a href=http://adsabs.harvard.edu/abs/1995ApJ...443L..93H>Hut, Makino & McMillan 1995</a>)
               <li> Automatic sub-system and binary identification algorithms </li>
               <li> Hybrid conservative SPH and N-body coupled integration (<a href=http://adsabs.harvard.edu/abs/2013MNRAS.430.1599H> Hubber, Allison, Smith & Goodwin 2013</a>)
             </ul>
-	  <li> Parallelized using OpenMP </li>
-	  <li> Produces output compatable with the 
-	    <a href=http://users.monash.edu.au/~dprice/splash/>SPLASH</a> visualisation program. </li>
-	</ul>
-        
+          <li> Parallelized using OpenMP </li>
+          <li> Produces output compatable with the
+            <a href=http://users.monash.edu.au/~dprice/splash/>SPLASH</a> visualisation program. </li>
+        </ul>
+
         <h2>Current development</h2>
-	<ul>
-	  <li> MPI parallelization </li>
+        <ul>
+          <li> Meshless Finite-Volume Hydrodynamics
+            (<a href=http://adsabs.harvard.edu/abs/2011MNRAS.414..129G>Gaburov & Nitadori 2011</a>,
+             <a href=http://adsabs.harvard.edu/abs/2015MNRAS.450...53H>Hopkins 2015</a>)
+          </li>
+          <li> MPI parallelization </li>
           <li> Improved sub-system integration </li>
         </ul>
 
         <h2>Future development</h2>
-	<ul>
-	  <li> Ewald periodic gravity 
-	    (<a href=http://adsabs.harvard.edu/abs/1991ApJS...75..231H>Hernquist, Bouchet & Suto 1991</a>, 
-	    	    <a href=http://adsabs.harvard.edu/abs/1997MNRAS.292...11K>Klessen 1997</a>) </li>
-	  <li> Ideal MHD (<a href=http://adsabs.harvard.edu/abs/2004MNRAS.348..123P>Price & Monaghan 2004</a>) </li>
-	  <li> Barnes-Hut Octal tree for efficient neighbour finding 
-	    and calculation of gravitational forces 
-	    (<a href=http://adsabs.harvard.edu/abs/1986Natur.324..446B>Barnes & Hut 1986</a>)
-          <li> TreeCol (ref???) and TreeRay radiation cooling/transport algorithms </li>
-	  </li>
-
-
-	</ui>
-
-
+        <ul>
+          <li> Ideal MHD (<a href=http://adsabs.harvard.edu/abs/2004MNRAS.348..123P>Price & Monaghan 2004</a>) </li>
+          <li> TreeCol (<a href=http://adsabs.harvard.edu/abs/2012MNRAS.420..745C>Clark, Glover & Klessen 2011</a>) and TreeRay radiation cooling/transport algorithms </li>
+        </ul>
 
       </div>
     </div>
