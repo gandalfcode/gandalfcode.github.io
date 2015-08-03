@@ -22,13 +22,12 @@
       </div>
       <nav>
         <ul class="sf-menu" id="nav">
-          <li><a href="index.html">What is GANDALF?</a></li>
+          <li><a href="index.html">GANDALF</a></li>
           <li><a href="examples.html">Using GANDALF</a></li>
           <li><a href="projects.html">Projects and publications</a></li>
           <li class="selected"><a href="tests.html">Test suite</a></li>
           <li><a href="download.html">Download</a></li>
-          <li><a href="#">Help</a>
-          </li>
+          <li><a href="gandalf-school/index.html">GANDALF school</a></li>
         </ul>
       </nav>
     </header>
@@ -38,9 +37,25 @@
       <div class="content">
         <h1>Tests</h1>
         <p>Hydrodynamical codes contain a wide selection of algorithms that must work in tandem to produce the correct results in real problems.  Although we can test the individual lines of code to check that everything works independently, we must perform simulations of problems with known results to be confident that the code is working as expected.  As with many other hydrodynamical codes, GANDALF contains a large test-suite of known problems to demonstrate that the code is functioning correctly</p>
+
         <h2>Hydrodynamical tests</h2>
+
         <h3>Shocktube tests</h3>
         <p>Shocktube tests have been used to validate the accuracy of hydrodynamical codes for decades, in particular for capturing shocks and also for handling low-density rarefactions.  We perform here two common tests; the adiabatic Sod test and the isothermal wall-shock test.</p>
+
+        <figure>
+        <center>
+        <a href="images/adsod-rho.png"><img src="images/adsod-rho.png" width="256"></a>
+        <a href="images/adsod-vx.png"><img src="images/adsod-vx.png" width="256"></a>
+        <a href="images/adsod-u.png"><img src="images/adsod-u.png" width="256"></a>
+        </center>
+        <br>
+        <figcaption>Results of Sod shocktube showing (a) Density, (b) velocity and
+          (c) specific internal energy for the SPH (blue) and Meshless (green) simulations.
+          Analytical solution is plotted in red. </figcaption>
+        </figure>
+        <br>
+
         <h3>Blast-wave tests</h3>
         <p>Blast-waves are demanding tests of a code's ability to model strong explosions which generate a strong supersonic shock.  Examples of such events in astrophysics include supernovae, high temperature winds and ionising radiation feedback from massive stars.</p>
         <p>We perform here the standard Sedov blast-wave test (also known as the Sedov-Taylor blast-wave).  The initial conditions are formally an infinitely extending cold uniform medium with a point explosion in the centre with total energy 1 (in dimensionless units).  This explosion can be either in thermal energy or in radial kinetic energy.  We simulate both cases here.</p>
